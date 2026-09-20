@@ -1,0 +1,224 @@
+<script>
+  const quotesOfTheDay = [
+    "The best way to predict the future is to create it.",
+    "Success is the sum of small efforts repeated day in and day out.",
+    "Believe you can, and you’re halfway there.",
+    "Every day is a new beginning.",
+    "Great things are done by a series of small things brought together."
+  ];
+</script>
+
+<script>
+  const userNumber = prompt("Please enter a number:");
+
+  if (userNumber !== null && userNumber.trim() !== "") {
+    const number = Number(userNumber);
+
+    if (Number.isFinite(number)) {
+      console.log("You entered:", number);
+    } else {
+      alert("Please enter a valid number.");
+    }
+  }
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quote of the Day</title>
+</head>
+<body>
+  <h1>Quote of the Day</h1>
+  <p id="quote"></p>
+
+  <script>
+    const quotesOfTheDay = [
+      "The best way to predict the future is to create it.",
+      "Success is the sum of small efforts repeated day in and day out.",
+      "Believe you can, and you’re halfway there.",
+      "Every day is a new beginning.",
+      "Great things are done by a series of small things brought together."
+    ];
+
+    const userInput = prompt("Please enter a number:");
+    const userNumber = Number(userInput);
+    const quoteElement = document.getElementById("quote");
+
+    if (Number.isInteger(userNumber)) {
+      // Get the remainder after dividing by 5.
+      // The extra calculation keeps negative numbers valid as array indexes.
+      const remainder =
+        ((userNumber % quotesOfTheDay.length) + quotesOfTheDay.length) %
+        quotesOfTheDay.length;
+
+      quoteElement.textContent = quotesOfTheDay[remainder];
+    } else {
+      quoteElement.textContent = "Please enter a valid whole number.";
+    }
+  </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Favorite Websites</title>
+</head>
+<body>
+  <h1>My Favorite Websites</h1>
+  <ul id="website-list"></ul>
+  <script>
+    const favoriteWebsites = [
+      "https://www.google.com",
+      "https://www.youtube.com",
+      "https://www.github.com"
+    ];
+    const websiteList = document.getElementById("website-list");
+    favoriteWebsites.forEach((url) => {
+      const listItem = document.createElement("li");
+      const link = document.createElement("a");
+      link.href = url;
+      link.textContent = url;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      listItem.appendChild(link);
+      websiteList.appendChild(listItem);
+    });
+  </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Favorite Websites</title>
+</head>
+<body>
+  <h1>My Favorite Websites</h1>
+  <ul id="website-list"></ul>
+  <script>
+    const favoriteWebsites = [
+      "https://www.google.com",
+      "https://www.youtube.com",
+      "https://www.github.com"
+    ];
+    const websiteList = document.getElementById("website-list");
+    favoriteWebsites.forEach((url) => {
+      const listItem = document.createElement("li");
+      const link = document.createElement("a");
+      link.href = url;
+      link.textContent = url;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      listItem.appendChild(link);
+      websiteList.appendChild(listItem);
+    });
+  </script>
+</body>
+</html>
+
+<script>
+  const favoriteWebsites = [
+    "https://www.google.com",
+    "https://www.youtube.com",
+    "https://www.github.com"
+  ];
+  const favoriteWebsite = prompt("Enter your favorite website:");
+  if (favoriteWebsite && favoriteWebsite.trim() !== "") {
+    favoriteWebsites.push(favoriteWebsite.trim());
+  }
+  // Delete the first website from the array.
+  favoriteWebsites.shift();
+  console.log(favoriteWebsites);
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Favorite Websites</title>
+</head>
+<body>
+  <h1>My Favorite Websites</h1>
+  <ul id="website-list"></ul>
+  <script>
+    const favoriteWebsites = [
+      "https://www.google.com",
+      "https://www.youtube.com",
+      "https://www.github.com"
+    ];
+    const favoriteWebsite = prompt("Enter your favorite website:");
+    if (favoriteWebsite && favoriteWebsite.trim() !== "") {
+      favoriteWebsites.push(favoriteWebsite.trim());
+    }
+    // Delete the first website.
+    favoriteWebsites.shift();
+    // Write the revised list of links to the page.
+    const websiteList = document.getElementById("website-list");
+    favoriteWebsites.forEach((website) => {
+      const listItem = document.createElement("li");
+      const link = document.createElement("a");
+      link.href = website;
+      link.textContent = website;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      listItem.appendChild(link);
+      websiteList.appendChild(listItem);
+    });
+  </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Favorite Websites</title>
+</head>
+<body>
+  <h1>My Favorite Websites</h1>
+  <!-- The revised list of website links will appear here. -->
+  <ul id="website-list"></ul>
+  <script>
+    // Create an array containing three favorite website URLs.
+    const favoriteWebsites = [
+      "https://www.google.com",
+      "https://www.youtube.com",
+      "https://www.github.com"
+    ];
+    // Ask the user to enter another favorite website.
+    const favoriteWebsite = prompt("Enter your favorite website:");
+    // Add the user's website to the end of the array if they entered one.
+    if (favoriteWebsite && favoriteWebsite.trim() !== "") {
+      favoriteWebsites.push(favoriteWebsite.trim());
+    }
+    // Remove the first website from the array.
+    favoriteWebsites.shift();
+    // Select the unordered list element on the page.
+    const websiteList = document.getElementById("website-list");
+    // Create a working link for each website in the revised array.
+    favoriteWebsites.forEach((website) => {
+      // Create a list item and a link element.
+      const listItem = document.createElement("li");
+      const link = document.createElement("a");
+      // Set the link destination and displayed text.
+      link.href = website;
+      link.textContent = website;
+      // Open each link in a new browser tab safely.
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      // Add the link to the list item, then add the list item to the page.
+      listItem.appendChild(link);
+      websiteList.appendChild(listItem);
+    });
+  </script>
+</body>
+</html>
