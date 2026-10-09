@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        header {
+            background: #007BFF;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .quiz-container {
+            margin: 20px 0;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .score {
+            font-weight: bold;
+            font-size: 24px;
+        }
+        button {
+            padding: 10px 15px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Welcome to the Quiz!</h1>
+</header>
+
+<div class="quiz-container">
+    <h2>Take the Quiz and Find Your Score!</h2>
+    <button onclick="startQuiz()">Start Quiz</button>
+    <div class="score" id="scoreDisplay"></div>
+</div>
+
+<script>
+    // Sample quiz function to collect score
+    function startQuiz() {
+        const totalQuestions = 5;
+        let score = 0;
+
+        // Simulating quiz answers (1 for correct answer)
+        const answers = [1, 0, 1, 1, 0]; // 1 correct, 0 incorrect
+        answers.forEach(answer => {
+            score += answer; // Increment score for correct answers
+        });
+
+        displayScore(score, totalQuestions);
+    }
+
+    function displayScore(score, totalQuestions) {
+        const scoreDisplay = document.getElementById('scoreDisplay');
+        scoreDisplay.innerHTML = `Your Score: ${score} / ${totalQuestions}`;
+    }
+</script>
+
+</body>
+</html>
