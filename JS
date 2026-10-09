@@ -1,0 +1,142 @@
+let randomNumber = Math.floor(Math.random() * 100) + 1;
+
+const submit = document.querySelector('#subt');
+
+const userInput = document.querySelector('#guessField');
+
+const startOver = document.querySelector('.resultParas');
+
+const previousGuess = document.querySelector('.guesses');
+
+const finalResult = document.querySelector('.lastResult');
+
+const lowOrHi = document.querySelector('.lowOrHi');
+
+let prevGuess = [];
+
+let attempts = 1;
+
+let playGame = true;
+
+if (playGame) {
+
+  submit.addEventListener('click', (e) => {
+
+    e.preventDefault();
+
+    const guess = parseInt(userInput.value);
+
+    validateGuess(guess);
+
+  });
+}
+function validateGuess(guess) {
+
+  if (isNaN(guess)) {
+
+    alert('Please enter a valid number.');
+
+  } else if (guess < 1 || guess > 100) {
+
+    alert('Please enter a number between 1 and 100.');
+
+  } else {
+
+    prevGuess.push(guess);
+
+    displayGuess(guess);
+
+    checkGuess(guess);
+
+  }
+
+}
+
+function checkGuess(guess) {
+
+  if (guess === randomNumber) {
+
+    displayMessage('Congratulations! You guessed it right!');
+
+    endGame();
+
+  } else if (attempts === 10) {
+
+    displayMessage(`Game Over! The number was ${randomNumber}.`);
+
+    endGame();
+
+  } else {
+
+    displayMessage(guess < randomNumber ? 'Number is too low. Try a higher number.' : 'Number is too high. Try a lower number.');
+
+    attempts++;
+
+    finalResult.textContent = 11 - attempts;
+
+  }
+
+}
+
+function displayGuess(guess) {
+
+  userInput.value = '';
+
+  previousGuess.textContent += `${guess}, `;
+
+}
+function displayMessage(message) {
+
+  lowOrHi.innerHTML = `<h3>${message}</h3>`;
+
+}
+
+function newGame() {
+
+  const newGameBtn = document.querySelector('#newGame');
+
+  newGameBtn.addEventListener('click', () => {
+
+    randomNumber = Math.floor(Math.random() * 100) + 1;
+
+    prevGuess = [];
+
+    attempts = 1;
+
+    userInput.removeAttribute('disabled');
+
+    previousGuess.textContent = '';
+
+    finalResult.textContent = '10';
+
+    lowOrHi.innerHTML = '';
+
+    startOver.removeChild(newGameBtn);
+
+    playGame = true;
+
+  });
+
+}
+
+function endGame() {
+
+  userInput.value = '';
+
+  userInput.setAttribute('disabled', true);
+
+  const newGameBtn = document.createElement('h2');
+
+  newGameBtn.id = 'newGame';
+
+  newGameBtn.classList.add('button');
+
+  newGameBtn.textContent = 'Start New Game';
+
+  startOver.appendChild(newGameBtn);
+
+  playGame = false;
+
+  newGame();
+
+}
